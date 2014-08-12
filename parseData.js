@@ -216,10 +216,10 @@ function getScanData(array) {
 	scan.TotalRightTissuePercentFat = parseFloatWithComma(trimIfExists(array[155]));
 	scan.TotalLeftTissuePercentFat = parseFloatWithComma(trimIfExists(array[156]));
 	scan.TotalDiffTissuePercentFat = parseFloatWithComma(trimIfExists(array[157]));
-	scan.TBW = parseFloatWithComma(trimIfExists(array[158]));
-	scan.ICW = parseFloatWithComma(trimIfExists(array[159]));
-	scan.ECW = parseFloatWithComma(trimIfExists(array[160]));
-	scan.TBWDevice = parseFloatWithComma(trimIfExists(array[161]));
+	scan.TBW = trimIfExists(array[158]);
+	scan.ICW = trimIfExists(array[159]);
+	scan.ECW = trimIfExists(array[160]);
+	scan.TBWDevice = trimIfExists(array[161]);
 
 	return scan;
 }
