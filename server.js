@@ -13,7 +13,22 @@ var allowCrossDomain = function(req, res, next) {
 	next();
 }
 
+var authenticate = function(req, res, next) {
+	// if authorized, pass through to next
+	// if not, alter status code and return forbidden message
+}
+
 router.use(allowCrossDomain);
+
+router.get('/users/', function (req, res) {
+	connection.query('SELECT * FROM users', req.params.id, function (err, result) {
+		if (err)
+			res.end(err);
+		else
+			res.json(result);
+	});
+});
+
 
 router.get('/users/:id', function (req, res) {
 	connection.query('SELECT * FROM users WHERE PatientID = ?', req.params.id, function (err, result) {
@@ -38,7 +53,7 @@ router.get('/scans/:id', function(req, res) {
 		if (err)
 			res.end(err);
 		else
-			res.send(result);
+			res.send(result[0]);
 	});
 });
 
