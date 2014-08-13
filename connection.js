@@ -23,7 +23,7 @@ function setupDatabase() {
 		if (err.code === 'PROTOCOL_CONNECTION_LOST') {
 			setupDatabase();
 		} else {
-			throm err;
+			throw err;
 		}
 	});
 
